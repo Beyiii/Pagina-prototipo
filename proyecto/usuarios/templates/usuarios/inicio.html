@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiBilletera</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/usuarios/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color:#787994;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+            {% load static %}
+            <img src="{% static '/imagenes/1.png' %}" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+            {% load static %}
+            <img src="{% static '/imagenes/2.png' %}" alt="Logo" width="130" height="25" class="d-inline-block align-text-top" style="margin-top:7px;">
+            </a>
+            <form class="form-inline ml-auto">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn btn-outline-light">Cerrar sesión </a>
+                    <a href="{% url 'mis_fichas' %}" class="btn btn-outline-light">Ingresos y Egresos</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-light">Iniciar Sesión</a>
+                {% endif %}
+            </form>
+        </div> 
+    </nav>
+    <div class="containeru">
+        <div class="left">
+            <div class="centered">
+                {% load static %}
+                <img src="{% static '/imagenes/chanchitorosa2.png' %}" class="img-fluid" alt="logo"> 
+            </div>
+        </div>
+        <div class="right">
+            <div class="centered">
+                <div class="card" style="width: 500px; height: 710px;" >
+                    <h2 class="card-header" style="text-align:center; background-color:#f69495; color: white;">Registrate</h2>
+                    <div class="card-body">
+                        <form method="post">
+                        {% csrf_token %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="nombre_usuario">Nombre</label>
+                                    <input type="text" class="form-control" id=nombre_usuario name="nombre" required>
+                                </div>
+                            </li>
+                
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="contraseña">Contraseña</label>
+                                    <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                                </div>
+                            </li>
+                            
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="apodo">Apodo</label>
+                                    <input type="text" class="form-control" id="apodo" name="apodo" required>
+                                </div>
+                            </li>
+                
+                            <li class="list-group-item" style="height: 115px;" >
+                                <div>
+                                    <label for="pronombre">Pronombre</label>
+                                    <select id="pronombre" class="form-control" name="pronombre" required>
+                                        <option class="disabled" value="">Elige un pronombre</option>
+                                        <option value="El">El</option>
+                                        <option value="La">La</option>
+                                        <option value="Le">Le</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                            </li>
+                
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="mail">Mail</label>
+                                    <input type="email" class="form-control" id="mail" name="mail" required>
+                                </div>
+                            </li>
+                
+                        </ul>
+                        <button type="submit" class="btn btn-primary" id="boton-register" > <b>Crear usuario</b></button>         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>

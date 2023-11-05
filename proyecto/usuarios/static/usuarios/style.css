@@ -1,0 +1,42 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.containeru {
+  display: flex;
+  height: 500vh;
+}
+
+.left {
+  background-color:#ffff;
+  flex-basis: 50%;
+}
+
+.right {
+  background-color: #ffd7cd;
+  flex-basis: 50%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+#boton-register {
+  background-color:#f69495; 
+  border-color:#f69495;
+  margin-top: 17px;
+  margin-left: 160px;
+}
+
+#boton-login {
+  background-color:#f69495;
+  border-color:#f69495;
+  margin-top: 17px;
+  margin-left: 190px;
+}
